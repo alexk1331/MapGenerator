@@ -6,7 +6,41 @@
         xmlns:local="clr-namespace:MapGenerator"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.25*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Name="ControlGrid" Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Name="testt" Grid.Row="0" Grid.Column="0" Click="testt_Click">test</Button>
+            <TextBox Name="testtb" Grid.Row="0" Grid.Column="2" PreviewTextInput="testtb_PreviewTextInput">0</TextBox>
+            <Button Name="Forward" Grid.Row="0" Grid.Column="1" Click="Moving_Click">↑</Button>
+            <Button Name="Backward" Grid.Row="1" Grid.Column="1" Click="Moving_Click">↓</Button>
+            <Button Name="Left" Grid.Row="1" Grid.Column="0" Click="Moving_Click">←</Button>
+            <Button Name="Right" Grid.Row="1" Grid.Column="2" Click="Moving_Click">→</Button>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Name="test">
+            <TextBlock Name="sizetb"></TextBlock>
+        </Grid>
+        <Grid Name="MapGrid" Grid.Row="1" Grid.Column="1" SizeChanged="MapGrid_SizeChanged" Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}">
+        </Grid>
         
     </Grid>
 </Window>
